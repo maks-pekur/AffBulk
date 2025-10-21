@@ -1,17 +1,6 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=0, must-revalidate"
-        },
-        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
-      ]
-    }
-  ]
+  "builds": [
+    { "src": "vite.config.ts", "use": "@vercel/static-build", "config": {} }
+  ],
+  "routes": [{ "src": "/(.*)", "dest": "/index.html" }]
 }
